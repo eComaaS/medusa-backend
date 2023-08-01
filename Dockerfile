@@ -1,16 +1,16 @@
-FROM node:17.1.0
+FROM node:18-alpine
 
-WORKDIR /app/medusa
+WORKDIR /usr/src/app
 
-COPY package.json .
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
 
 RUN addgroup -g 10014 choreo && \
     adduser  --disabled-password  --no-create-home --uid 10014 --ingroup choreo choreouser
 
 USER 10014
-
-RUN npm install --loglevel=error
-
-COPY . .
 
 ENTRYPOINT ["npx", "medusa", "develop"]
