@@ -15,4 +15,4 @@ USER 10014
 
 RUN npm install -g @medusajs/medusa-cli@latest
 
-ENTRYPOINT ["npx", "medusa", "develop"]
+ENTRYPOINT ["medusa", "develop"]
