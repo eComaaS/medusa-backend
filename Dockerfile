@@ -13,4 +13,6 @@ RUN addgroup -g 10014 choreo && \
 
 USER 10014
 
+RUN npm install -g @medusajs/medusa-cli@latest
+
 ENTRYPOINT ["npx", "medusa", "develop"]
