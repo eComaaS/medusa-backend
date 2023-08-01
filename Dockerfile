@@ -13,4 +13,7 @@ RUN addgroup -g 10014 choreo && \
 
 USER 10014
 
+RUN ls /home/
+RUN ls /home/choreouser
+
 ENTRYPOINT ["npm", "run", "start"]
