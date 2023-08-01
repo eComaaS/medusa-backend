@@ -6,12 +6,8 @@ COPY package.json .
 
 USER 10014
 
-RUN npm install -g npm@latest
-
-RUN npm install -g @medusajs/medusa-cli@latest
-
 RUN npm install --loglevel=error
 
 COPY . .
 
-ENTRYPOINT ["medusa", "develop"]
+ENTRYPOINT ["npx", "medusa", "develop"]
