@@ -6,6 +6,8 @@ COPY package*.json ./
 
 RUN npm install
 
+RUN npm install -g @medusajs/medusa-cli@latest
+
 COPY . .
 
 RUN addgroup -g 10014 choreo && \
@@ -16,4 +18,4 @@ USER 10014
 RUN ls /home/
 RUN ls /home/choreouser
 
-ENTRYPOINT ["./node_modules/.bin/medusa", "start"]
+ENTRYPOINT ["medusa", "start"]
