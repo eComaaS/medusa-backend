@@ -10,10 +10,10 @@ RUN npm install -g @medusajs/medusa-cli@latest
 
 COPY . .
 
-RUN addgroup -g 10014 choreo && \
-    adduser  --disabled-password --uid 10014 --ingroup choreo choreouser
+# RUN addgroup -g 10014 choreo && \
+#     adduser  --disabled-password --uid 10014 --ingroup choreo choreouser
 
-USER 10014
+# USER 10014
 
 RUN ls /home/
 RUN ls /home/choreouser
