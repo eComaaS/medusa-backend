@@ -16,4 +16,4 @@ USER 10014
 RUN ls /home/
 RUN ls /home/choreouser
 
-ENTRYPOINT ["npm", "run", "start"]
+ENTRYPOINT ["./node_modules/.bin/medusa", "start"]
