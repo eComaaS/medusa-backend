@@ -7,6 +7,8 @@ RUN addgroup -g 10014 choreo && \
 
 USER 10014
 
+RUN chown -R choreouser:choreouser /usr/src/app
+
 COPY package*.json ./
 
 RUN npm install
