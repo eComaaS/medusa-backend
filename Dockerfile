@@ -16,4 +16,4 @@ USER 10014
 RUN ls /home/
 RUN ls /home/choreouser
 
-ENTRYPOINT ["npx", "@medusajs/medusa-cli", "start"]
+ENTRYPOINT ["node", "index.js"]
