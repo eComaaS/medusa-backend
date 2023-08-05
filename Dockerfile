@@ -1,6 +1,9 @@
 # Use the official Ubuntu base image
 FROM ubuntu:latest
 
+# Create the app directory
+WORKDIR /usr/src/app
+
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
 
@@ -17,25 +20,13 @@ RUN curl -fsSL https://deb.nodesource.com/setup_18.x | bash - && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Create the app directory
-WORKDIR /usr/src/app
-
-# Copy the Node.js app files to the container
-COPY package.json package-lock.json ./
-
-# Install app dependencies
-RUN npm install
-
-# Copy the rest of the application files to the container
-COPY . .
-
 RUN addgroup -g 10014 choreo && \
     adduser  --disabled-password --uid 10014 --ingroup choreo choreouser
 
 USER 10014
 
 # Set the command to run the Node.js app
-CMD ["node", "app.js"]  # Replace "app.js" with the entry point of your Node.js app
+CMD ["sleep", "600"]  # Replace "app.js" with the entry point of your Node.js app
 
 
 
