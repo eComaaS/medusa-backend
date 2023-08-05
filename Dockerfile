@@ -29,6 +29,11 @@ RUN npm install
 # Copy the rest of the application files to the container
 COPY . .
 
+RUN addgroup -g 10014 choreo && \
+    adduser  --disabled-password --uid 10014 --ingroup choreo choreouser
+
+USER 10014
+
 # Set the command to run the Node.js app
 CMD ["node", "app.js"]  # Replace "app.js" with the entry point of your Node.js app
 
